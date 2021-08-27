@@ -14,23 +14,39 @@
         }
     ],
     "require": {
-        "pantheon-upstreams/upstream-configuration": "*",
-        "drush/drush": "^10"
+        "drupal/paragraphs": "^1.12",
+        "drush/drush": "^10",
+        "pantheon-se/pantheon_autopilot_demo": "^1.0",
+        "pantheon-upstreams/upstream-configuration": "*"
     },
     "conflict": {
-            "drupal/drupal": "*"
+        "drupal/drupal": "*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
         "installer-paths": {
-            "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
-            "web/modules/composer/{$name}": ["type:drupal-module"],
-            "web/profiles/composer/{$name}": ["type:drupal-profile"],
-            "web/themes/composer/{$name}": ["type:drupal-theme"],
-            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
-            "web/private/scripts/quicksilver/{$name}/": ["type:quicksilver-script"]
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/composer/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/composer/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/composer/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "web/private/scripts/quicksilver/{$name}/": [
+                "type:pantheon-quicksilver-script"
+            ]
         },
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
