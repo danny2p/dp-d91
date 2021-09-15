@@ -116,16 +116,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "ae03311f45dfe194412081526be2e003960df74b"
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/ae03311f45dfe194412081526be2e003960df74b",
-                "reference": "ae03311f45dfe194412081526be2e003960df74b",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
                 "shasum": ""
             },
             "require": {
@@ -224,6 +224,7 @@
                 "modx",
                 "moodle",
                 "osclass",
+                "pantheon",
                 "phpbb",
                 "piwik",
                 "ppi",
@@ -246,7 +247,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v1.11.0"
+                "source": "https://github.com/composer/installers/tree/v1.12.0"
             },
             "funding": [
                 {
@@ -262,7 +263,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-28T06:42:17+00:00"
+            "time": "2021-09-13T08:19:44+00:00"
         },
         {
             "name": "composer/semver",
@@ -1321,16 +1322,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.2.4",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "c723626030c728ec2f9f6526e6cd5f029c9e628c"
+                "reference": "c51e9d9e28c08e284ff57ca42504cfe0ec9522db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/c723626030c728ec2f9f6526e6cd5f029c9e628c",
-                "reference": "c723626030c728ec2f9f6526e6cd5f029c9e628c",
+                "url": "https://api.github.com/repos/drupal/core/zipball/c51e9d9e28c08e284ff57ca42504cfe0ec9522db",
+                "reference": "c51e9d9e28c08e284ff57ca42504cfe0ec9522db",
                 "shasum": ""
             },
             "require": {
@@ -1569,22 +1570,22 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.2.4"
+                "source": "https://github.com/drupal/core/tree/9.2.6"
             },
-            "time": "2021-08-12T17:48:08+00:00"
+            "time": "2021-09-14T22:07:47+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.2.4",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
-                "reference": "e146f2d0bab60c798c7cc91eae79f25c43a96899"
+                "reference": "3c9efe8e154acc2cadb86b51733be55556677b0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/e146f2d0bab60c798c7cc91eae79f25c43a96899",
-                "reference": "e146f2d0bab60c798c7cc91eae79f25c43a96899",
+                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/3c9efe8e154acc2cadb86b51733be55556677b0b",
+                "reference": "3c9efe8e154acc2cadb86b51733be55556677b0b",
                 "shasum": ""
             },
             "require": {
@@ -1619,22 +1620,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.4"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.6"
             },
-            "time": "2021-07-10T22:39:33+00:00"
+            "time": "2021-08-24T12:04:07+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.2.4",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "b8f3420017a6e03f1402ee6058c6da16bba9b257"
+                "reference": "e9bbd6d45dddc02157ea675b557c604feb31c80d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/b8f3420017a6e03f1402ee6058c6da16bba9b257",
-                "reference": "b8f3420017a6e03f1402ee6058c6da16bba9b257",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/e9bbd6d45dddc02157ea675b557c604feb31c80d",
+                "reference": "e9bbd6d45dddc02157ea675b557c604feb31c80d",
                 "shasum": ""
             },
             "require": {
@@ -1643,7 +1644,7 @@
                 "doctrine/annotations": "1.13.1",
                 "doctrine/lexer": "1.2.1",
                 "doctrine/reflection": "1.2.2",
-                "drupal/core": "9.2.4",
+                "drupal/core": "9.2.6",
                 "egulias/email-validator": "2.1.25",
                 "guzzlehttp/guzzle": "6.5.5",
                 "guzzlehttp/promises": "1.4.1",
@@ -1706,9 +1707,9 @@
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.2.4"
+                "source": "https://github.com/drupal/core-recommended/tree/9.2.6"
             },
-            "time": "2021-08-12T17:48:08+00:00"
+            "time": "2021-09-14T22:07:47+00:00"
         },
         {
             "name": "drupal/entity_reference_revisions",
@@ -3002,16 +3003,16 @@
         },
         {
             "name": "pantheon-se/pantheon_autopilot_demo",
-            "version": "v1.0.25",
+            "version": "v1.0.73",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pantheon-SE/pantheon_autopilot_demo.git",
-                "reference": "ff834593db212061050dc9eb1b713677e11ef318"
+                "reference": "4fac862c071cbd2bee8aea1a1c615cecda7cf11f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pantheon-SE/pantheon_autopilot_demo/zipball/ff834593db212061050dc9eb1b713677e11ef318",
-                "reference": "ff834593db212061050dc9eb1b713677e11ef318",
+                "url": "https://api.github.com/repos/Pantheon-SE/pantheon_autopilot_demo/zipball/4fac862c071cbd2bee8aea1a1c615cecda7cf11f",
+                "reference": "4fac862c071cbd2bee8aea1a1c615cecda7cf11f",
                 "shasum": ""
             },
             "type": "drupal-module",
@@ -3029,9 +3030,9 @@
             "description": "Simple demo to showcase Pantheon Autopilot VRT detection",
             "support": {
                 "issues": "https://github.com/Pantheon-SE/pantheon_autopilot_demo/issues",
-                "source": "https://github.com/Pantheon-SE/pantheon_autopilot_demo/tree/v1.0.25"
+                "source": "https://github.com/Pantheon-SE/pantheon_autopilot_demo/tree/v1.0.73"
             },
-            "time": "2021-08-30T15:05:51+00:00"
+            "time": "2021-09-15T15:06:06+00:00"
         },
         {
             "name": "pantheon-systems/drupal-integrations",
@@ -3078,7 +3079,7 @@
         },
         {
             "name": "pantheon-upstreams/upstream-configuration",
-            "version": "dev-autopilot",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
