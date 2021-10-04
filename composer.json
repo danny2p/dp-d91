@@ -17,6 +17,7 @@
         "drupal/paragraphs": "^1.12",
         "drush/drush": "^10",
         "pantheon-se/pantheon_autopilot_demo": "^1.0",
+        "pantheon-systems/search_api_pantheon": "^8",
         "pantheon-upstreams/upstream-configuration": "*"
     },
     "conflict": {
