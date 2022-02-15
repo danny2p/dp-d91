@@ -43,7 +43,9 @@ $git_token = $gitSecrets['token'];
 
 if (empty($git_token)) {
     $message = "Unable to load Git token from secrets file";
-    pantheon_raise_dashboard_error($message, true);
+    //pantheon_raise_dashboard_error($message, true);
+    print $message;
+    return;
 }
 
 /*
