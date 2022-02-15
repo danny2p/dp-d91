@@ -77,7 +77,7 @@ if ($ahead_count > 0 && $behind_count == 0) {
 $local = exec("git rev-parse @");
 //latest github commit
 $remote = exec('git ls-remote '.$github_remote.' | head -1 | sed "s/HEAD//"');
-$is_remote_ancestor = exec("git merge-base --is-ancestor remote master");
+$is_remote_ancestor = exec("git merge-base --is-ancestor $remote master");
 #$base = passthru("git merge-base @ github/master");
 
 print "Local: $local \n";
@@ -90,7 +90,7 @@ if ($local == $remote) {
 } elseif ($is_remote_ancestor) {
     exec_print("git push $github_remote master");
     print "\n Pushed to github";
-} elseif ($remote == $base) {
+} else {
     print "Pantheon is behind GitHub.";
     return;
 }
