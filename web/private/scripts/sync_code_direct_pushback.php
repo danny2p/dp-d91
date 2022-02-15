@@ -55,7 +55,8 @@ if (empty($git_token)) {
 */
 
 #exec_print("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master -vvv");
-exec("git remote add github https://danny2p:$git_token@github.com/danny2p/dp-d91.git");
+passthru("git remote add github https://danny2p:$git_token@github.com/danny2p/dp-d91.git");
+passthru("git fetch github master");
 /*
 $fetch_output = passthru("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master -vvv");
 print "fetch output: $fetch_output \n";
@@ -71,9 +72,9 @@ if ($ahead_count > 0 && $behind_count == 0) {
     print "\n Pushed to Github. \n";
 }
 */
-$local = exec("git rev-parse @");
-$remote = exec("git rev-parse github/master");
-$base = exec("git merge-base @ github/master");
+$local = passthru("git rev-parse @");
+$remote = passthru("git rev-parse github/master");
+$base = passthru("git merge-base @ github/master");
 
 print "Local: $local \n";
 print "Remote: $remote \n";
