@@ -42,7 +42,7 @@ if (empty($git_token)) {
 * Let's check for changes in Github
 *
 * Since Pantheon is really authoritative, as we're running the code, we'll try to automatically
-* push back to Github master.  In most cases this should be safe if Github commits to Github master
+* push back to Github master.  In most cases this should be safe if commits to Github master
 * branch are always being pushed to Pantheon.
 *
 */
@@ -59,7 +59,7 @@ $ancestor_output = $is_remote_ancestor ? 'Github HEAD is not ancestor' : 'Github
 
 print "Local: $local \n";
 print "Remote: $remote \n";
-print "$ancestor_output \n"
+print "$ancestor_output \n";
 
 if ($local == $remote) {
     // in many cases CI, or user pushed to Pantheon, so Pantheon will be up to date with Github
