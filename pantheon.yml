@@ -8,5 +8,5 @@ workflows:
   sync_code:
     after:
       - type: webphp
-        description: Push back to github upon Pantheon code sync
+        description: Push back to github upon Pantheon code sync.
         script: private/scripts/sync_code_direct_pushback.php
