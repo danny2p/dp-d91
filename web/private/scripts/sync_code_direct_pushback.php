@@ -56,17 +56,17 @@ if (empty($git_token)) {
 
 #exec_print("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master -vvv");
 passthru("git remote add github https://danny2p:$git_token@github.com/danny2p/dp-d91.git");
-passthru("git fetch github master -vvv");
-
+$fetch_output = passthru("git fetch github master -vvv");
+print "fetch output: $fetch_output \n";
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
-$behind_count = exec("git rev-list --count HEAD..github/master");
-$ahead_count = exec("git rev-list --count github/master..HEAD");
+$behind_count = passthru("git rev-list --count HEAD..github/master");
+$ahead_count = passthru("git rev-list --count github/master..HEAD");
 print "Behind: $behind_count \n";
 print "Ahead: $ahead_count \n";
 
 if ($ahead_count > 0 && $behind_count == 0) {
     print "Pushing to Github. \n";
-    exec_print("git push $github_remote master");
+    passthru("git push $github_remote master");
     print "\n Pushed to Github. \n";
 }
 
