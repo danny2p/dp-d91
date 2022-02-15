@@ -54,12 +54,13 @@ if (empty($git_token)) {
 *
 */
 
-exec_print("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master");
+#exec_print("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master -vvv");
+exec_print("git remote add github https://danny2p:$git_token@github.com/danny2p/dp-d91.git");
+exec_print("git fetch github master -vvv");
 
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
-exec("git fetch $github_remote master");
-$behind_count = exec("git rev-list --count HEAD..@{u}");
-$ahead_count = exec("git rev-list --count @{u}..HEAD");
+$behind_count = exec("git rev-list --count HEAD..github/master");
+$ahead_count = exec("git rev-list --count github/master..HEAD");
 print "Behind: $behind_count \n";
 print "Ahead: $ahead_count \n";
 
