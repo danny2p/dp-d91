@@ -62,13 +62,17 @@ $local = exec("git rev-parse @");
 $remote = exec("git rev-parse $github_remote");
 $base = exec("git merge-base @ $github_remote");
 
+print "Local: $local \n";
+print "Remote: $remote \n";
+print "Base: $base \n";
+
 if ($local == $remote) {
     print "Up-to-date.";
     return;
 } elseif ($local == $base) {
     print "Pantheon is behind GitHub.";
     return;
-} elseif ($remote = $base) {
+} elseif ($remote == $base) {
     exec_print("git push $github_remote master");
     print "\n Pushed to github";
 } else {
