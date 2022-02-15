@@ -8,5 +8,5 @@ workflows:
   sync_code:
     after:
       - type: webphp
-        description: Post deployment notification to Slack
-        script: private/scripts/slack_deploy_notification.php
+        description: Push back to github upon Pantheon code sync
+        script: private/scripts/sync_code_direct_pushback.php
