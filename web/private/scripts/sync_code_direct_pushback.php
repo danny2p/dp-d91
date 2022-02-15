@@ -55,8 +55,8 @@ if (empty($git_token)) {
 */
 
 #exec_print("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master -vvv");
-exec_print("git remote add github https://danny2p:$git_token@github.com/danny2p/dp-d91.git");
-exec_print("git fetch github master -vvv");
+passthru("git remote add github https://danny2p:$git_token@github.com/danny2p/dp-d91.git");
+passthru("git fetch github master -vvv");
 
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
 $behind_count = exec("git rev-list --count HEAD..github/master");
