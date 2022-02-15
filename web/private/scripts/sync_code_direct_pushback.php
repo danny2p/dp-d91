@@ -87,7 +87,7 @@ print "Ancestor: $is_remote_ancestor \n";
 if ($local == $remote) {
     print "Up-to-date.";
     return;
-} elseif ($is_remote_ancestor) {
+} elseif ($is_remote_ancestor === 0) {
     exec_print("git push $github_remote master");
     print "\n Pushed to github";
 } else {
