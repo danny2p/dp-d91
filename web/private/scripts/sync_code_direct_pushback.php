@@ -53,10 +53,11 @@ if (empty($git_token)) {
 * Fetch in case of changes in github master
 *
 */
+$github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
 
 #exec_print("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master -vvv");
 passthru("git remote add github https://danny2p:$git_token@github.com/danny2p/dp-d91.git");
-passthru("git fetch github master");
+passthru("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master");
 /*
 $fetch_output = passthru("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master -vvv");
 print "fetch output: $fetch_output \n";
@@ -72,25 +73,25 @@ if ($ahead_count > 0 && $behind_count == 0) {
     print "\n Pushed to Github. \n";
 }
 */
+//latest local commit
 $local = passthru("git rev-parse @");
-$remote = passthru("git rev-parse github/master");
-$base = passthru("git merge-base @ github/master");
+//latest github commit
+$remote = passthru('git ls-remote '.$github_remote.' | head -1 | sed "s/HEAD//"');
+$is_remote_ancestor = passthrough("git merge-base --is-ancestor remote master");
+#$base = passthru("git merge-base @ github/master");
 
 print "Local: $local \n";
 print "Remote: $remote \n";
-print "Base: $base \n";
+print "Ancestor: $is_remote_ancestor \n";
 
 
 if ($local == $remote) {
     print "Up-to-date.";
     return;
-} elseif ($local == $base) {
-    print "Pantheon is behind GitHub.";
-    return;
-} elseif ($remote == $base) {
-    exec_print("git push github master");
+} elseif ($is_remote_ancestor) {
+    exec_print("git push $github_remote master");
     print "\n Pushed to github";
-} else {
-    print "Ancestors have diverged.";
+} elseif ($remote == $base) {
+    print "Pantheon is behind GitHub.";
     return;
 }
