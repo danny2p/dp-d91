@@ -80,14 +80,18 @@ $remote = exec('git ls-remote '.$github_remote.' | head -1 | sed "s/HEAD//"');
 $is_remote_ancestor = exec("git merge-base --is-ancestor $remote master");
 #$base = passthru("git merge-base @ github/master");
 
-print "Local: $local \n";
-print "Remote: $remote \n";
+print "Local: |$local| \n";
+print "Remote: |$remote| \n";
 print "Ancestor: $is_remote_ancestor \n";
+
+$ancestor = $is_remote_ancestor ? 'true' : 'false';
+
+print "is_ancestor: $ancestor \n";
 
 if ($local == $remote) {
     print "Up-to-date.";
     return;
-} elseif ($is_remote_ancestor === 0) {
+} elseif ($is_remote_ancestor == 0) {
     exec_print("git push $github_remote master");
     print "\n Pushed to github";
 } else {
