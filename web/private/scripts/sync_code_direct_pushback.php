@@ -77,7 +77,7 @@ if ($ahead_count > 0 && $behind_count == 0) {
 $local = passthru("git rev-parse @");
 //latest github commit
 $remote = passthru('git ls-remote '.$github_remote.' | head -1 | sed "s/HEAD//"');
-$is_remote_ancestor = passthrough("git merge-base --is-ancestor remote master");
+$is_remote_ancestor = passthru("git merge-base --is-ancestor remote master");
 #$base = passthru("git merge-base @ github/master");
 
 print "Local: $local \n";
