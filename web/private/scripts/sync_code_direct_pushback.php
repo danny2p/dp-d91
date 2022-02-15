@@ -59,8 +59,8 @@ exec_print("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git m
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
 
 $local = exec("git rev-parse @");
-$remote = exec("git rev-parse $github_remote");
-$base = exec("git merge-base @ $github_remote");
+$remote = exec("git ls-remote $github_remote master");
+$base = exec("git merge-base @");
 
 print "Local: $local \n";
 print "Remote: $remote \n";
