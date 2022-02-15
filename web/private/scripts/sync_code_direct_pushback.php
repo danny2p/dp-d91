@@ -57,15 +57,27 @@ if (empty($git_token)) {
 exec_print("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master");
 
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
+exec("git fetch $github_remote master");
+$behind_count = exec("git rev-list --count HEAD..@{u}");
+$ahead_count = exec("git rev-list --count @{u}..HEAD");
+print "Behind: $behind_count \n";
+print "Ahead: $ahead_count \n";
 
-$local = exec("git rev-parse @");
-$remote = exec("git ls-remote $github_remote master");
-$base = exec("git merge-base @");
+if ($ahead_count > 0 && $behind_count == 0) {
+    print "Pushing to Github. \n";
+    exec_print("git push $github_remote master");
+    print "\n Pushed to Github. \n";
+}
 
-print "Local: $local \n";
-print "Remote: $remote \n";
-print "Base: $base \n";
+#$local = exec("git rev-parse @");
+#$remote = exec("git ls-remote $github_remote master");
+#$base = exec("git merge-base @");
 
+#print "Local: $local \n";
+#print "Remote: $remote \n";
+#print "Base: $base \n";
+
+/*
 if ($local == $remote) {
     print "Up-to-date.";
     return;
@@ -79,3 +91,4 @@ if ($local == $remote) {
     print "Ancestors have diverged.";
     return;
 }
+*/
