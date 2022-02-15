@@ -18,16 +18,6 @@ function load_git_secrets($gitSecretsFile)
   return $gitSecrets;
 }
 
-function exec_print($command) {
-    $result = array();
-    exec($command, $result);
-    print("<pre>");
-    foreach ($result as $line) {
-        print($line . "\n");
-    }
-    print("</pre>");
-}
-
 // Do nothing if not on Pantheon or if on the test/live environments.
 if (!isset($_ENV['PANTHEON_ENVIRONMENT']) || in_array($_ENV['PANTHEON_ENVIRONMENT'], ['test', 'live']) ) {
     return;
@@ -35,7 +25,6 @@ if (!isset($_ENV['PANTHEON_ENVIRONMENT']) || in_array($_ENV['PANTHEON_ENVIRONMEN
 
 $bindingDir = $_SERVER['HOME'];
 $fullRepository = realpath("$bindingDir/code");
-
 $privateFiles = realpath("$bindingDir/files/private");
 $gitSecretsFile = "$privateFiles/.build-secrets/tokens.json";
 $gitSecrets = load_git_secrets($gitSecretsFile);
@@ -50,51 +39,39 @@ if (empty($git_token)) {
 
 /*
 *
-* Fetch in case of changes in github master
+* Let's check for changes in Github
+*
+* Since Pantheon is really authoritative, as we're running the code, we'll try to automatically
+* push back to Github master.  In most cases this should be safe if Github commits to Github master
+* branch are always being pushed to Pantheon.
 *
 */
+
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
 
-#exec_print("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master -vvv");
-exec("git remote add github https://danny2p:$git_token@github.com/danny2p/dp-d91.git");
-exec("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master");
-/*
-$fetch_output = passthru("git fetch https://danny2p:$git_token@github.com/danny2p/dp-d91.git master -vvv");
-print "fetch output: $fetch_output \n";
-$github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
-$behind_count = passthru("git rev-list --count HEAD..github/master");
-$ahead_count = passthru("git rev-list --count github/master..HEAD");
-print "Behind: $behind_count \n";
-print "Ahead: $ahead_count \n";
-
-if ($ahead_count > 0 && $behind_count == 0) {
-    print "Pushing to Github. \n";
-    passthru("git push $github_remote master");
-    print "\n Pushed to Github. \n";
-}
-*/
-//latest local commit
+// latest local commit
 $local = exec("git rev-parse @");
-//latest github commit
+// latest github commit
 $remote = exec('git ls-remote '.$github_remote.' | head -1 | sed "s/HEAD//"');
+// check if Pantheon's latest commit to master is a descendent of latest commit in github - if not we probably don't want to push
 $is_remote_ancestor = exec("git merge-base --is-ancestor $remote master");
-#$base = passthru("git merge-base @ github/master");
+$ancestor_output = $is_remote_ancestor ? 'Github HEAD is not ancestor' : 'Github HEAD is ancestor';
 
-print "Local: |$local| \n";
-print "Remote: |$remote| \n";
-print "Ancestor: $is_remote_ancestor \n";
-
-$ancestor = $is_remote_ancestor ? 'true' : 'false';
-
-print "is_ancestor: $ancestor \n";
+print "Local: $local \n";
+print "Remote: $remote \n";
+print "$ancestor_output \n"
 
 if ($local == $remote) {
+    // in many cases CI, or user pushed to Pantheon, so Pantheon will be up to date with Github
     print "Up-to-date.";
     return;
 } elseif ($is_remote_ancestor == 0) {
-    exec_print("git push $github_remote master");
-    print "\n Pushed to github";
+    // in this case, 0 means true
+    // in the case of Autopilot or dashboard one-click update, Pantheon will have new commits.  Github head should be ancestor
+    exec("git push $github_remote master");
+    print "\n Pushed to Github.";
 } else {
-    print "Pantheon is behind GitHub.";
+    print "Pantheon and Github have diverged'.";
+    // TODO - slack notification or other to notify user they may need to manually reconcile
     return;
 }
