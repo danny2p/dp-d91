@@ -1,5 +1,8 @@
 <?php
-    while(1) {
-        print "In loop!\n";
-    }
+$start = microtime(true);
+
+while(1) {
+    $time_elapsed_secs = microtime(true) - $start;
+    print "In loop - $time_elapsed_secs \n";
+}
 ?>
