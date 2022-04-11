@@ -15,6 +15,7 @@
     ],
     "require": {
         "drupal/devel": "^4.1",
+        "drupal/gutenberg": "^2.4",
         "drupal/module_filter": "^3.2",
         "drupal/paragraphs": "^1.13",
         "drush/drush": "^10",
