@@ -1,7 +1,10 @@
+<table>
 <?php
 
 foreach (getallheaders() as $name => $value) {
-    echo "$name: $value\n";
+    echo "<tr>";
+    echo "<td>$name</td><td>$value</td>";
+    echo "</tr>";
 }
-
 ?>
+</table>
