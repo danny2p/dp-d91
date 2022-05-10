@@ -348,16 +348,16 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "4.5.4",
+            "version": "4.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "93398c3166d9026ab93219ce23b2092b4d7b7904"
+                "reference": "67cea8e8e7656b74da651ea6f49321853996c0fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/93398c3166d9026ab93219ce23b2092b4d7b7904",
-                "reference": "93398c3166d9026ab93219ce23b2092b4d7b7904",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/67cea8e8e7656b74da651ea6f49321853996c0fd",
+                "reference": "67cea8e8e7656b74da651ea6f49321853996c0fd",
                 "shasum": ""
             },
             "require": {
@@ -398,9 +398,9 @@
             "description": "Initialize Symfony Console commands from annotated command class methods.",
             "support": {
                 "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.5.4"
+                "source": "https://github.com/consolidation/annotated-command/tree/4.5.5"
             },
-            "time": "2022-04-05T17:58:10+00:00"
+            "time": "2022-04-26T16:18:25+00:00"
         },
         {
             "name": "consolidation/config",
@@ -3449,6 +3449,71 @@
             "time": "2021-07-21T13:50:14+00:00"
         },
         {
+            "name": "kint-php/kint",
+            "version": "4.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kint-php/kint.git",
+                "reference": "fa53c4333cda79dc9cb002cfa029abe994d0ae00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kint-php/kint/zipball/fa53c4333cda79dc9cb002cfa029abe994d0ae00",
+                "reference": "fa53c4333cda79dc9cb002cfa029abe994d0ae00",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "phpspec/prophecy-phpunit": "^2",
+                "phpunit/phpunit": "^9.0",
+                "seld/phar-utils": "^1.0",
+                "symfony/finder": "^3.0 || ^4.0 || ^5.0",
+                "vimeo/psalm": "^4.0"
+            },
+            "suggest": {
+                "kint-php/kint-helpers": "Provides extra helper functions",
+                "kint-php/kint-twig": "Provides d() and s() functions in twig templates"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "init.php"
+                ],
+                "psr-4": {
+                    "Kint\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Vollebregt",
+                    "homepage": "https://github.com/jnvsor"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/kint-php/kint/graphs/contributors"
+                }
+            ],
+            "description": "Kint - debugging tool for PHP developers",
+            "homepage": "https://kint-php.github.io/kint/",
+            "keywords": [
+                "debug",
+                "kint",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/kint-php/kint/issues",
+                "source": "https://github.com/kint-php/kint/tree/4.1.2"
+            },
+            "time": "2022-02-22T20:32:24+00:00"
+        },
+        {
             "name": "laminas/laminas-diactoros",
             "version": "2.8.0",
             "source": {
@@ -4082,16 +4147,16 @@
         },
         {
             "name": "pantheon-se/pantheon_autopilot_demo",
-            "version": "v1.0.699",
+            "version": "v1.0.747",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pantheon-SE/pantheon_autopilot_demo.git",
-                "reference": "5fe939b67fe054509a21ce0a663eb0c3968d3f0d"
+                "reference": "facc86cbb82ea004b3660e5855d94821cb338326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pantheon-SE/pantheon_autopilot_demo/zipball/5fe939b67fe054509a21ce0a663eb0c3968d3f0d",
-                "reference": "5fe939b67fe054509a21ce0a663eb0c3968d3f0d",
+                "url": "https://api.github.com/repos/Pantheon-SE/pantheon_autopilot_demo/zipball/facc86cbb82ea004b3660e5855d94821cb338326",
+                "reference": "facc86cbb82ea004b3660e5855d94821cb338326",
                 "shasum": ""
             },
             "type": "drupal-module",
@@ -4109,9 +4174,9 @@
             "description": "Simple demo to showcase Pantheon Autopilot VRT detection",
             "support": {
                 "issues": "https://github.com/Pantheon-SE/pantheon_autopilot_demo/issues",
-                "source": "https://github.com/Pantheon-SE/pantheon_autopilot_demo/tree/v1.0.699"
+                "source": "https://github.com/Pantheon-SE/pantheon_autopilot_demo/tree/v1.0.747"
             },
-            "time": "2022-04-22T15:07:56+00:00"
+            "time": "2022-05-10T15:08:19+00:00"
         },
         {
             "name": "pantheon-systems/drupal-integrations",
@@ -4158,16 +4223,16 @@
         },
         {
             "name": "pantheon-systems/search_api_pantheon",
-            "version": "8.0.0-beta9",
+            "version": "8.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/search_api_pantheon.git",
-                "reference": "d7df67aff967871783d7947a689842c0401644d4"
+                "reference": "b887c5c6f8dc46471447df4c2f6c6acbcbb0c7c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/search_api_pantheon/zipball/d7df67aff967871783d7947a689842c0401644d4",
-                "reference": "d7df67aff967871783d7947a689842c0401644d4",
+                "url": "https://api.github.com/repos/pantheon-systems/search_api_pantheon/zipball/b887c5c6f8dc46471447df4c2f6c6acbcbb0c7c9",
+                "reference": "b887c5c6f8dc46471447df4c2f6c6acbcbb0c7c9",
                 "shasum": ""
             },
             "require": {
@@ -4177,6 +4242,7 @@
                 "ext-zip": "*",
                 "guzzlehttp/guzzle": "^6.5.2",
                 "http-interop/http-factory-guzzle": "^1.0",
+                "kint-php/kint": "^4.1",
                 "php": ">=7.4",
                 "php-http/guzzle6-adapter": "^2.0",
                 "psr/event-dispatcher": "^1.0"
@@ -4212,9 +4278,9 @@
             "description": "Connection module for Pantheon Search (solr 8)",
             "support": {
                 "issues": "https://github.com/pantheon-systems/search_api_pantheon/issues",
-                "source": "https://github.com/pantheon-systems/search_api_pantheon/tree/8.0.0-beta9"
+                "source": "https://github.com/pantheon-systems/search_api_pantheon/tree/8.0-beta10"
             },
-            "time": "2022-02-09T04:32:20+00:00"
+            "time": "2022-05-03T16:42:17+00:00"
         },
         {
             "name": "pantheon-upstreams/upstream-configuration",
@@ -5925,16 +5991,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.4.3",
+            "version": "v5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "231313534dded84c7ecaa79d14bc5da4ccb69b7d"
+                "reference": "9b630f3427f3ebe7cd346c277a1408b00249dad9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/231313534dded84c7ecaa79d14bc5da4ccb69b7d",
-                "reference": "231313534dded84c7ecaa79d14bc5da4ccb69b7d",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/9b630f3427f3ebe7cd346c277a1408b00249dad9",
+                "reference": "9b630f3427f3ebe7cd346c277a1408b00249dad9",
                 "shasum": ""
             },
             "require": {
@@ -5968,7 +6034,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v5.4.3"
+                "source": "https://github.com/symfony/finder/tree/v5.4.8"
             },
             "funding": [
                 {
@@ -5984,7 +6050,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-26T16:34:36+00:00"
+            "time": "2022-04-15T08:07:45+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
