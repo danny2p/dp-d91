@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f51d46b77bac48df72c7438cf4855ee",
+    "content-hash": "1a8db88db16d1e6c15711c4d80e401dc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2180,6 +2180,135 @@
                 "source": "https://github.com/drupal/core-recommended/tree/9.4.5"
             },
             "time": "2022-08-03T16:33:29+00:00"
+        },
+        {
+            "name": "drupal/decoupled_preview",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/decoupled_preview.git",
+                "reference": "1.0.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/decoupled_preview-1.0.0-alpha2.zip",
+                "reference": "1.0.0-alpha2",
+                "shasum": "be72b0aefec2d39a514bc6eecb27ad4b4a92234e"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/decoupled_router": "^2",
+                "drupal/jsonapi_resources": "^1.0@beta"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "4.0.x-dev"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-alpha2",
+                    "datestamp": "1657631071",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                },
+                "patches": {
+                    "drupal/decoupled_router": {
+                        "3111456#34: Unable to resolve path on node in other language than default": "https://www.drupal.org/files/issues/2021-05-05/3111456-34.patch"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "scripts": {
+                "post-update-cmd": [
+                    "./scripts/composer/project-tasks"
+                ]
+            },
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "abhisekmazumdar",
+                    "homepage": "https://www.drupal.org/user/3557964"
+                },
+                {
+                    "name": "brianperry",
+                    "homepage": "https://www.drupal.org/user/2304500"
+                },
+                {
+                    "name": "greg.1.anderson",
+                    "homepage": "https://www.drupal.org/user/438598"
+                }
+            ],
+            "description": "Preview Drupal content on your decoupled site.",
+            "homepage": "https://www.drupal.org/project/decoupled_preview",
+            "keywords": [
+                "Drupal",
+                "decoupled",
+                "preview"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/decoupled_preview",
+                "issues": "https://www.drupal.org/project/issues/decoupled_preview"
+            }
+        },
+        {
+            "name": "drupal/decoupled_router",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/decoupled_router.git",
+                "reference": "2.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/decoupled_router-2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": "3e494c9d76c55d2f29eedffd1ab0c68c7224be27"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "require-dev": {
+                "drupal/redirect": "^1.0@beta"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.3",
+                    "datestamp": "1631977518",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Mateu Aguiló Bosch",
+                    "homepage": "https://www.drupal.org/user/103796",
+                    "email": "mateu.aguilo.bosch@gmail.com"
+                },
+                {
+                    "name": "e0ipso",
+                    "homepage": "https://www.drupal.org/user/550110"
+                },
+                {
+                    "name": "mglaman",
+                    "homepage": "https://www.drupal.org/user/2416470"
+                }
+            ],
+            "description": "Provides an endpoint that will help you resolve path aliases and redirects for entity related routes.",
+            "homepage": "https://www.drupal.org/project/decoupled_router",
+            "support": {
+                "source": "https://git.drupalcode.org/project/decoupled_router"
+            }
         },
         {
             "name": "drupal/devel",
@@ -8601,7 +8730,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/decoupled_preview": 15
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
