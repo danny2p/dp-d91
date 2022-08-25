@@ -21,6 +21,7 @@
         "drupal/gutenberg": "^2.4",
         "drupal/jsonapi_menu_items": "^1.2",
         "drupal/module_filter": "^3.2",
+        "drupal/pantheon_decoupled": "^1.0@alpha",
         "drupal/paragraphs": "^1.13",
         "drush/drush": "^10",
         "pantheon-se/pantheon_autopilot_demo": "^1.0",
