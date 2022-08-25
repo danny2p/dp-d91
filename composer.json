@@ -61,6 +61,7 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
+        "enable-patching": true,
         "drupal-scaffold": {
             "allowed-packages": [
                 "pantheon-systems/drupal-integrations"
