@@ -8,5 +8,13 @@ workflows:
   sync_code:
     after:
       - type: webphp
+        description: Log to New Relic
+        script: private/scripts/new_relic_deploy.php
+      - type: webphp
         description: Push back to github upon Pantheon code sync.
         script: private/scripts/sync_code_direct_pushback.php
+  deploy:
+    after:
+      - type: webphp
+        description: Log to New Relic
+        script: private/scripts/new_relic_deploy.php
