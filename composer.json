@@ -17,6 +17,7 @@
         "drupal/decoupled_preview": "^1.0@alpha",
         "drupal/decoupled_router": "^2.0",
         "drupal/devel": "^4.1",
+        "drupal/feeds": "^3.0@beta",
         "drupal/google_analytics": "^4.0",
         "drupal/graphql": "^4.3",
         "drupal/gutenberg": "^2.4",
