@@ -32,3 +32,41 @@ $local_settings = __DIR__ . "/settings.local.php";
 if (file_exists($local_settings)) {
   include $local_settings;
 }
+
+$bar = 'Around here, football is the winter sport of choice!';
+if (isset($_COOKIE['STYXKEY_gorp'])) {
+
+  $foo = $_COOKIE['STYXKEY_gorp'];
+  // Generate varied content based on cookie value
+  // Do NOT set cookies here; Set-Cookie headers do not allow the response to be cached
+  if ($foo == 'ca') {
+    str_replace('football', 'hockey', $bar);
+  }
+
+}
+
+else {
+  /**
+  * Set local vars passed to setcookie()
+  * Example:
+  * @code
+  * $name = 'STYXKEY_gorp';
+  * $value = 'bar';
+  * $expire = time()+600;
+  * $path = '/foo';
+  * $domain =  $_SERVER['HTTP_HOST'];
+  * $secure = true;
+  * $httponly = true;
+  * @endcode
+  **/
+
+  $name = 'STYXKEY_gorp';
+  $value = 'bar';
+  $expire = time()+600;
+  $path = '/foo';
+  $domain =  $_SERVER['HTTP_HOST'];
+  $secure = true;
+  $httponly = true;
+
+  setcookie($name, $value, $expire, $path, $domain, $secure, $httponly);
+}
