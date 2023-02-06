@@ -1,5 +1,19 @@
 <?php
 
+// 301 Redirect from /old to /new
+// Check if Drupal or WordPress is running via command line
+if (($_SERVER['REQUEST_URI'] == '/index.cfm') && (php_sapi_name() != "cli")) {
+  header('HTTP/1.0 301 Moved Permanently');
+  header('Location: https://'. $_SERVER['HTTP_HOST'] . '/user');
+
+  // Name transaction "redirect" in New Relic for improved reporting (optional).
+  if (extension_loaded('newrelic')) {
+    newrelic_name_transaction("redirect");
+  }
+
+  exit();
+}
+
 /**
  * Load services definition file.
  */
