@@ -1,0 +1,8 @@
+extradb.welcome:
+  path: '/extradb/test'
+  defaults:
+    _controller: '\Drupal\extradb\Controller
+\ExtradbController::welcome'
+    _title: 'Extra DB test in Drupal 9'
+  requirements: 
+    _permission: 'access content'
