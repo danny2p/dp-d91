@@ -3,14 +3,19 @@ namespace Drupal\extradb\Controller;
 
 class ExtradbController {
   public function extradb() {
+    $con = \Drupal\Core\Database\Database::getConnection('default','second');
+    $sql = "SELECT id, pid, price FROM {products}";
+    #$sql = "show tables";
+    #$database = \Drupal::database();
+    $query = $con->query($sql);
+    $result = $query->fetchAll();
+
+    $output = "<pre>";
+    $output .= print_r($result,true);
+    $output .= "</pre>";
+
     return array (
-      '#markup' => 'Welcome to our Website.'
+      '#markup' => 'Product data fetched from external database: '.$output;
     );
   }
 }
-
-//To get another database (here : 'second')
-$con = \Drupal\Core\Database\Database::getConnection('default','second');
-
-//To set the active connection
-$conn = \Drupal\Core\Database\Database::setActiveConnection('second');
