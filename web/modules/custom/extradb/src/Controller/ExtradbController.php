@@ -15,7 +15,7 @@ class ExtradbController {
     $output .= "</pre>";
 
     return array (
-      '#markup' => 'Product data fetched from external database: '.$output;
+      '#markup' => "Product data fetched from external database: " . $output
     );
   }
 }
