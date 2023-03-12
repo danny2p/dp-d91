@@ -29,12 +29,8 @@ if ($nr == false) {
 // commits, and deploys between environments. To make sure we 
 // have good deploy markers, we gather data differently depending
 // on the context.
-print "WF Type: ". $_POST['wf_type'];
-print "POST: <pre>";
-print_r($_POST);
-print "</pre>";
 
-if ($_POST['wf_type'] == 'sync_code') {
+if (in_array($_POST['wf_type'], ['sync_code','sync_code_with_build'])) {
   // commit 'subject'
   $description = trim(`git log --pretty=format:"%s" -1`);
   $revision = trim(`git log --pretty=format:"%h" -1`);
