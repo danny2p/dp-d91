@@ -10,6 +10,10 @@ if (extension_loaded('newrelic')) {
 $req = pantheon_curl('https://api.live.getpantheon.com/sites/self/bindings?type=newrelic', null, 8443);
 $meta = json_decode($req['body'], true);
 
+print "META <pre>";
+print_r($meta);
+print "</pre>";
+
 // Get the right binding for the current ENV.
 // It should be possible to just fetch the one for the current env.
 $nr = false;
@@ -29,6 +33,9 @@ if ($nr == false) {
 // commits, and deploys between environments. To make sure we 
 // have good deploy markers, we gather data differently depending
 // on the context.
+print "POST: <pre>";
+print_r($_POST);
+print "</pre>";
 
 if ($_POST['wf_type'] == 'sync_code') {
   // commit 'subject'
