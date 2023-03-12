@@ -2001,7 +2001,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/build_hooks.git",
-                "reference": "badb1d14c10cd109db64ccb4e07dacc630cd8774"
+                "reference": "aef555b658be453a040ccf2ebd7039a966283251"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10",
@@ -2013,8 +2013,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "3.3.0+2-dev",
-                    "datestamp": "1668812397",
+                    "version": "3.3.1+1-dev",
+                    "datestamp": "1678067003",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -6207,16 +6207,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.15.3",
+            "version": "v4.15.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "570e980a201d8ed0236b0a62ddf2c9cbb2034039"
+                "reference": "6bb5176bc4af8bcb7d926f88718db9b96a2d4290"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/570e980a201d8ed0236b0a62ddf2c9cbb2034039",
-                "reference": "570e980a201d8ed0236b0a62ddf2c9cbb2034039",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/6bb5176bc4af8bcb7d926f88718db9b96a2d4290",
+                "reference": "6bb5176bc4af8bcb7d926f88718db9b96a2d4290",
                 "shasum": ""
             },
             "require": {
@@ -6257,22 +6257,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.3"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.4"
             },
-            "time": "2023-01-16T22:05:37+00:00"
+            "time": "2023-03-05T19:49:14+00:00"
         },
         {
             "name": "pantheon-se/pantheon_autopilot_demo",
-            "version": "v1.0.1572",
+            "version": "v1.0.1581",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pantheon-SE/pantheon_autopilot_demo.git",
-                "reference": "8b23c0bc030e7abf47a7d1726ef250b72b996a04"
+                "reference": "646204de764ce34e74fa583bbbf361144c6bb4a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pantheon-SE/pantheon_autopilot_demo/zipball/8b23c0bc030e7abf47a7d1726ef250b72b996a04",
-                "reference": "8b23c0bc030e7abf47a7d1726ef250b72b996a04",
+                "url": "https://api.github.com/repos/Pantheon-SE/pantheon_autopilot_demo/zipball/646204de764ce34e74fa583bbbf361144c6bb4a3",
+                "reference": "646204de764ce34e74fa583bbbf361144c6bb4a3",
                 "shasum": ""
             },
             "type": "drupal-module",
@@ -6290,9 +6290,9 @@
             "description": "Simple demo to showcase Pantheon Autopilot VRT detection",
             "support": {
                 "issues": "https://github.com/Pantheon-SE/pantheon_autopilot_demo/issues",
-                "source": "https://github.com/Pantheon-SE/pantheon_autopilot_demo/tree/v1.0.1572"
+                "source": "https://github.com/Pantheon-SE/pantheon_autopilot_demo/tree/v1.0.1581"
             },
-            "time": "2023-03-02T11:06:45+00:00"
+            "time": "2023-03-06T19:06:16+00:00"
         },
         {
             "name": "pantheon-systems/drupal-integrations",
@@ -6400,7 +6400,7 @@
         },
         {
             "name": "pantheon-upstreams/upstream-configuration",
-            "version": "dev-autopilot",
+            "version": "dev-extradb",
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
@@ -10407,5 +10407,5 @@
     "platform-overrides": {
         "php": "7.4"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

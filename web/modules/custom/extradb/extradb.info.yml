@@ -1,0 +1,6 @@
+name: Extra DB
+type: module
+description: 'Small module to test extra db from sandbox site'
+package: Pantheon
+version: 1.0
+core_version_requirement: ^8 || ^9

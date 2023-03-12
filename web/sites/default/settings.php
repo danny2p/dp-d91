@@ -1,5 +1,6 @@
 <?php
 
+
 // 301 Redirect from /old to /new
 // Check if Drupal or WordPress is running via command line
 if (($_SERVER['REQUEST_URI'] == '/index.cfm') && (php_sapi_name() != "cli")) {
@@ -84,3 +85,14 @@ else {
 
   setcookie($name, $value, $expire, $path, $domain, $secure, $httponly);
 }
+
+$databases['second']['default'] = array (
+  'database' => 'pantheon',
+  'username' => 'pantheon',
+  'password' => 'UHvFKFoJqxYirw9zy3Pj3AUUHMzDas15',
+  'prefix' => '',
+  'host' => 'dbserver.dev.a8efb50e-a307-45b2-a204-10f9855867c9.drush.in',
+  'port' => '16501',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);

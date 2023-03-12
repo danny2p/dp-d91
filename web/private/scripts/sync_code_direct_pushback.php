@@ -48,5 +48,5 @@ if (empty($git_token)) {
 
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
 exec("git pull $github_remote");
-exec("git push $github_remote");
-print "Pushed to remote repository.";
+exec("git push --set-upstream $github_remote");
+print "\n Pushed to remote repository.";
