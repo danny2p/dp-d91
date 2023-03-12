@@ -19,7 +19,7 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  *      a local development environment, to ensure that
  *      the site settings remain consistent.
  */
-include "../default/settings.pantheon.php";
+include "/code/web/sites/default/settings.pantheon.php";
 
 /**
  * Skipping permissions hardening will make scaffolding
