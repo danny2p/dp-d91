@@ -1,9 +1,10 @@
 <?php
 
-drupal_page_is_cacheable(FALSE);
-    $conf['page_cache_maximum_age'] = 0;
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['page'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
-    
+
 #setting site name variable for local use
 #creating a new multisite instance requires you to change this variable
 #Be sure to change this to the same identifier that
