@@ -1,8 +1,5 @@
 <?php
 
-$settings['cache']['bins']['render'] = 'cache.backend.null';
-$settings['cache']['bins']['page'] = 'cache.backend.null';
-$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
 // 301 Redirect from /old to /new
 // Check if Drupal or WordPress is running via command line

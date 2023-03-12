@@ -1,9 +1,5 @@
 <?php
 
-$settings['cache']['bins']['render'] = 'cache.backend.null';
-$settings['cache']['bins']['page'] = 'cache.backend.null';
-$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
-
 
 #setting site name variable for local use
 #creating a new multisite instance requires you to change this variable
