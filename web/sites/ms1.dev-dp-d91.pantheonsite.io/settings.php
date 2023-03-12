@@ -32,13 +32,15 @@ include "/code/web/sites/default/settings.pantheon.php";
 
 $databases['default']['default'] = array (
   'database' => 'pantheon',
-  'username' => 'pantheon',
+  'username' => 'a7c8f12be8cd40ff9e579cf81106129c',
   'password' => 'UHvFKFoJqxYirw9zy3Pj3AUUHMzDas15',
   'prefix' => '',
-  'host' => 'dbserver.dev.a8efb50e-a307-45b2-a204-10f9855867c9.drush.in',
-  'port' => '16501',
+  'host' => 'dbhost',
+  'port' => '6033',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
 
-$settings['hash_salt'] = 'wzuUwbK7eKmLG335iAOUT6cvDJ23Gzd1w_DjPpk-aF76xCBi7mK8GLQ2oaLDX3XxTcXL6IPwrw';
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  $settings['hash_salt'] = $_ENV['DRUPAL_HASH_SALT'];
+}
