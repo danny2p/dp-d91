@@ -49,11 +49,9 @@ if (empty($git_token)) {
 
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
 
-
-$remote = exec("git remote add github $github_remote");
-$pull = exec("git pull github master");
-print "Pull: " . $$pull . "\n";
-$push = exec("git push github master");
+$pull = exec("git pull $github_remote master");
+print "Pull: " . $pull . "\n";
+$push = exec("git push $github_remote master");
 print "Push: " . $push . "\n";
 
 
