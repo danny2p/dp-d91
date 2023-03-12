@@ -50,11 +50,9 @@ if (empty($git_token)) {
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
 
 
-exec("git remote add github $github_remote");
-$fetch = exec("git fetch github master");
-print "Fetch: " . $fetch . "\n";
-$merge = exec("git merge github/master");
-print "Merge: " . $merge . "\n";
+$remote = exec("git remote add github $github_remote");
+$pull = exec("git pull github master");
+print "Pull: " . $$pull . "\n";
 $push = exec("git push github master");
 print "Push: " . $push . "\n";
 
