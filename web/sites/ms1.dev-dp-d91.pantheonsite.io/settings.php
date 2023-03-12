@@ -1,4 +1,9 @@
 <?php
+
+drupal_page_is_cacheable(FALSE);
+    $conf['page_cache_maximum_age'] = 0;
+
+    
 #setting site name variable for local use
 #creating a new multisite instance requires you to change this variable
 #Be sure to change this to the same identifier that
