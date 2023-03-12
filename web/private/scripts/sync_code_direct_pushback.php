@@ -49,6 +49,17 @@ if (empty($git_token)) {
 
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
 
+
+exec("git remote add github $github_remote");
+$fetch = exec("git fetch github master");
+print "Fetch: " . $fetch . "\n";
+$merge = exec("git merge github/master");
+print "Merge: " . $merge . "\n";
+$push = exec("git push github master");
+print "Push: " . $push . "\n";
+
+
+/*
 // latest local commit
 $local = exec("git rev-parse @");
 // latest github commit
@@ -75,3 +86,5 @@ if ($local == $remote) {
     // TODO - slack notification or other to notify user they may need to manually reconcile
     return;
 }
+
+*/
