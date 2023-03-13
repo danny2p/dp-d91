@@ -97,8 +97,6 @@ $databases['second']['default'] = array (
   'driver' => 'mysql',
 );
 
-/*
-
 if (defined(
  'PANTHEON_ENVIRONMENT'
 ) && !\Drupal\Core\Installer\InstallerKernel::installationAttempted(
@@ -169,4 +167,3 @@ if (defined(
    ],
  ];
 }
-*/

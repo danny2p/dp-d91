@@ -47,8 +47,6 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
   $settings['hash_salt'] = $_ENV['DRUPAL_HASH_SALT'];
 }
 
-/*
-
 // Configure Redis
 
 if (defined(
@@ -121,4 +119,3 @@ if (defined(
     ],
   ];
  }
- */
