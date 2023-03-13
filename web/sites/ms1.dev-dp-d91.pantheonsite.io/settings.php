@@ -61,7 +61,7 @@ if (defined(
  
   // These are dynamic variables handled by Pantheon.
   $settings['redis.connection']['host'] = "35.188.180.156";
-  $settings['redis.connection']['port'] = 12333;
+  $settings['redis.connection']['port'] = "12333";
   $settings['redis.connection']['password'] = "993f82785d1e4c11abd8f2643a9ae2e0";
  
   $settings['redis_compress_length'] = 100;
