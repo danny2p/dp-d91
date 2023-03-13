@@ -97,7 +97,6 @@ $databases['second']['default'] = array (
   'driver' => 'mysql',
 );
 
-/*
 
 if (defined(
  'PANTHEON_ENVIRONMENT'
@@ -133,7 +132,7 @@ if (defined(
 
  // Manually add the classloader path, this is required for the container
  // cache bin definition below.
- $class_loader->addPsr4('Drupal\\redis\\', 'modules/contrib/redis/src');
+ $class_loader->addPsr4('Drupal\\redis\\', 'modules/contrib/redis/src'); 
 
  // Use redis for container cache.
  // The container cache is used to load the container definition itself, and
@@ -169,4 +168,3 @@ if (defined(
    ],
  ];
 }
-*/
