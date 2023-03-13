@@ -28,6 +28,7 @@
         "drupal/pantheon_decoupled": "^1.0@alpha",
         "drupal/paragraphs": "^1.13",
         "drupal/redis": "^1.6",
+        "drupal/webprofiler": "^9.0",
         "drush/drush": "^10",
         "pantheon-se/pantheon_autopilot_demo": "^1.0",
         "pantheon-systems/search_api_pantheon": "^8",
