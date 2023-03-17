@@ -1,12 +1,7 @@
 <?php
 
-
-#setting site name variable for local use
-#creating a new multisite instance requires you to change this variable
-#Be sure to change this to the same identifier that
-#you use under ‘services’ in your .lando.yml file.
 $site_name = "ms1.dev-dp-d91.pantheonsite.io";
-
+$second_db_env = "extradb";
 /**
  * Load services definition file.
  */
@@ -32,13 +27,56 @@ include "/code/web/sites/default/settings.pantheon.php";
  */
 // $settings['skip_permissions_hardening'] = TRUE;
 
+// get cacheserver from secondary env
+
+// get db from secondary env
+
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  if (function_exists('pantheon_curl')) {
+    $url = 'https://api.live.getpantheon.com/sites/self/bindings?type=dbserver';
+    $req = pantheon_curl($url, NULL, 8443);
+    $bindings = json_decode($req['body'], TRUE);
+    $db_found = FALSE;
+    $db_array = [];
+
+    foreach ($bindings as $binding) {
+      if (!empty($binding['environment'])) {
+        //  Extract DB credentials
+        $db_array[$binding['environment']] = [
+          'PRIVATE_IP' => $binding['private_ip'],
+          'DB_INTERNAL_USER' => $binding['username'],
+          'DB_USER' => 'pantheon',
+          'DB_PASSWORD' => $binding['password'],
+          'DB_HOST' => "{$binding['type']}.{$binding['environment']}.{$binding['site']}.drush.in",
+          'DB_HOST_INTERNAL' => $binding['host'],
+          'DB_PORT' => $binding['port'],
+          'DB_NAME' => 'pantheon',
+          'ENV' => $binding['environment'],
+        ];
+          $db_found = TRUE;
+      }
+    }
+
+    // No database credentials found.
+    if (!$db_found) {
+      die("No database credentials found.");
+    }
+
+  }
+  #print json_encode($db_array);
+} else {
+    // local DB creds here
+    die("This script will not run outside of the Pantheon Platform");
+}
+
+
 $databases['default']['default'] = array (
   'database' => 'pantheon',
-  'username' => 'a7c8f12be8cd40ff9e579cf81106129c',
-  'password' => 'UHvFKFoJqxYirw9zy3Pj3AUUHMzDas15',
+  'username' => $db_array[$second_db_env]['DB_INTERNAL_USER'],
+  'password' => $db_array[$second_db_env]['DB_PASSWORD'],
   'prefix' => '',
-  'host' => 'dbserver.dev.a8efb50e-a307-45b2-a204-10f9855867c9.drush.in',
-  'port' => '16501',
+  'host' => $db_array[$second_db_env]['PRIVATE_IP'],
+  'port' => $db_array[$second_db_env]['DB_PORT'],
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
@@ -55,14 +93,14 @@ if (defined(
  ) && extension_loaded('redis')) {
   // Set Redis as the default backend for any cache bin not otherwise specified.
   $settings['cache']['default'] = 'cache.backend.redis';
- 
+
   //phpredis is built into the Pantheon application container.
   $settings['redis.connection']['interface'] = 'PhpRedis';
  
   // These are dynamic variables handled by Pantheon.
-  $settings['redis.connection']['host'] = "35.188.180.156";
-  $settings['redis.connection']['port'] = "12333";
-  $settings['redis.connection']['password'] = "993f82785d1e4c11abd8f2643a9ae2e0";
+  $settings['redis.connection']['host'] = "10.73.0.186";
+  $settings['redis.connection']['port'] = "12029";
+  $settings['redis.connection']['password'] = "f1838f6991db49439f3d39c12f586428";
  
   $settings['redis_compress_length'] = 100;
   $settings['redis_compress_level'] = 1;
