@@ -60,9 +60,9 @@ class FileTestingController extends ControllerBase {
 
   public function filetestqg() {
     
-    $pdf_url = '"https://documents.tocris.com/pdfs/tocris_msds/0106_sds.pdf';
+    $pdf_url = 'https://documents.tocris.com/pdfs/tocris_msds/0106_sds.pdf';
     // Set the URL of the QuotaGuard proxy server
-    $proxy_url = 'http://us-east-static-06.quotaguard.com:9292';
+    $proxy_url = 'http://us-east-static-06.quotaguard.com:9293';
     
     // Set the proxy authentication credentials
     $username = 'zb435sl185kgoc';
