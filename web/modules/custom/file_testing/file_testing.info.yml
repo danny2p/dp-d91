@@ -1,0 +1,4 @@
+name: File Testing
+type: module
+description: A module that demonstrates how to register a custom path and controller in Drupal 9.
+core_version_requirement: ^9

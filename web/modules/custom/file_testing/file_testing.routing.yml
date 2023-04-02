@@ -1,0 +1,7 @@
+file_testing.hello:
+  path: '/file-testing'
+  defaults:
+    _controller: '\Drupal\file_testing\Controller\FileTestingController::hello'
+    _title: 'File Testing'
+  requirements:
+    _permission: 'access content'
