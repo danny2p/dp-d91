@@ -1,7 +1,14 @@
-file_testing.hello:
+file_testing.filetest:
   path: '/file-testing'
   defaults:
-    _controller: '\Drupal\file_testing\Controller\FileTestingController::hello'
+    _controller: '\Drupal\file_testing\Controller\FileTestingController::filetest'
     _title: 'File Testing'
+  requirements:
+    _permission: 'access content'
+file_testing.filetestqg:
+  path: '/file-testing-qg'
+  defaults:
+    _controller: '\Drupal\file_testing\Controller\FileTestingController::filetestqg'
+    _title: 'File Testing via Quota Guard'
   requirements:
     _permission: 'access content'
