@@ -7,6 +7,11 @@ search:
 database:
   version: 10.6
 workflows:
+  autopilot_vrt:
+    after:
+      - type: webphp
+        description: Push back to github upon Pantheon code sync.
+        script: private/scripts/sync_code_direct_pushback.php
   sync_code:
     after:
       - type: webphp

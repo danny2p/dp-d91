@@ -18,12 +18,17 @@ function load_git_secrets($git_secrets_file)
   return $git_secrets;
 }
 
-/*
-* If you only wanted this to execute on Dev (master):
-if ($_ENV['PANTHEON_ENVIRONMENT'] != "dev") {
-    return;
+print "Starting Quicksilver Script";
+
+# If you only wanted this to execute on Dev (master):
+if ($_ENV['PANTHEON_ENVIRONMENT'] == "autopilot") {
+  print "Autopilot branch, quicksilver";
+  print "<pre>";
+  print_r($_ENV);
+  print "</pre>";
+  return;
 }
-*/
+
 
 $private_files = realpath($_SERVER['HOME']."/files/private");
 $git_secrets_file = "$private_files/.build-secrets/tokens.json";
