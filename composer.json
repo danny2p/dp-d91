@@ -41,25 +41,25 @@
     "prefer-stable": true,
     "extra": {
         "installer-paths": {
-            "web/core": [
+            "./web/core": [
                 "type:drupal-core"
             ],
-            "web/libraries/{$name}": [
+            "./web/libraries/{$name}": [
                 "type:drupal-library"
             ],
-            "web/modules/composer/{$name}": [
+            "./web/modules/composer/{$name}": [
                 "type:drupal-module"
             ],
-            "web/profiles/composer/{$name}": [
+            "./web/profiles/composer/{$name}": [
                 "type:drupal-profile"
             ],
-            "web/themes/composer/{$name}": [
+            "./web/themes/composer/{$name}": [
                 "type:drupal-theme"
             ],
-            "drush/Commands/contrib/{$name}": [
+            "./drush/Commands/contrib/{$name}": [
                 "type:drupal-drush"
             ],
-            "web/private/scripts/quicksilver/{$name}/": [
+            "./web/private/scripts/quicksilver/{$name}/": [
                 "type:pantheon-quicksilver-script"
             ]
         },
