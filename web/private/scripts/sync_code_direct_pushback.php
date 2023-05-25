@@ -18,13 +18,16 @@ function load_git_secrets($git_secrets_file)
   return $git_secrets;
 }
 
-print "Starting Quicksilver Script";
+print "Starting Quicksilver Script \n\n";
 
 # If you only wanted this to execute on Dev (master):
 if ($_ENV['PANTHEON_ENVIRONMENT'] == "autopilot") {
   print "Autopilot branch, quicksilver";
-  print "<pre>";
+  print "ENV: <pre>";
   print_r($_ENV);
+  print "</pre>";
+  print "POST: <pre>";
+  print_r($_POST);
   print "</pre>";
   return;
 }
