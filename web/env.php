@@ -1,1 +1,5 @@
-<?php var_dump($_ENV); ?>
+<?php 
+print "<pre>";
+print_r($_ENV);
+print "</pre>";
+?>
