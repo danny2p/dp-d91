@@ -10,8 +10,8 @@ workflows:
   autopilot_vrt:
     after:
       - type: webphp
-        description: Push back to github upon Pantheon code sync.
-        script: private/scripts/sync_code_direct_pushback.php
+        description: Push code on autopilot VRT.
+        script: private/scripts/autopilot_deploy.php
   sync_code:
     after:
       - type: webphp
