@@ -24,6 +24,9 @@ print "POST: <pre>";
 print_r($_POST);
 print "</pre>";
 
+print "SERVER: <pre>";
+print_r($_SERVER);
+print "</pre>";
 # If you only wanted this to execute on Dev (master):
 if ($_ENV['PANTHEON_ENVIRONMENT'] != "autopilot") {
   return;
