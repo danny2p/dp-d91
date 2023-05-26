@@ -80,6 +80,6 @@ passthru("git -C $fullRepository remote -v");
 
 echo "\n\n";
 
-passthru("git -C $fullRepository push $github_remote autopilot -v");
+passthru("git -C $fullRepository push $github_remote autopilot --force -v");
 
 print "\n Pushed to remote repository.";
