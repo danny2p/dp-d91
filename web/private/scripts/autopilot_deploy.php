@@ -20,15 +20,12 @@ function load_git_secrets($git_secrets_file)
 
 print "Starting Quicksilver Script \n\n";
 
+print "POST: <pre>";
+print_r($_POST);
+print "</pre>";
+
 # If you only wanted this to execute on Dev (master):
-if ($_ENV['PANTHEON_ENVIRONMENT'] == "autopilot") {
-  print "Autopilot branch \n\n";
-  print "ENV: <pre>";
-  print_r($_ENV);
-  print "</pre>";
-  print "POST: <pre>";
-  print_r($_POST);
-  print "</pre>";
+if ($_ENV['PANTHEON_ENVIRONMENT'] != "autopilot") {
   return;
 }
 
