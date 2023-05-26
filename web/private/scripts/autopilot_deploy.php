@@ -52,8 +52,18 @@ if (empty($git_token)) {
 */
 
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
+echo "pwd: ";
+echo exec("pwd");
+echo "\n ls -lha: \n";
 echo exec("ls -lha");
+
+echo "cd ../../";
+echo exec ("cd ../../");
+echo "\n\n git status: \n";
 echo exec("git status");
+echo "\n git log: \n";
+echo exec("git log");
+echo "\n\n";
 echo exec("git pull $github_remote autopilot");
 echo exec("git push --set-upstream $github_remote autopilot");
 print "\n Pushed to remote repository.";
