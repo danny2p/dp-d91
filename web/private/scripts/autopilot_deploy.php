@@ -52,20 +52,38 @@ if (empty($git_token)) {
 */
 
 $github_remote="https://danny2p:$git_token@github.com/danny2p/dp-d91.git";
+
+$bindingDir = $_SERVER['HOME'];
+$fullRepository = realpath("$bindingDir/code");
+
+echo "FullRepository: $fullRepository \n\n";
 echo "pwd: ";
 echo exec("pwd");
+
+
+echo "\n\n cd ../../../ \n";
+echo exec("cd ../../../");
+
+echo "pwd: ";
+echo exec("pwd");
+
 echo "\n ls -lha: \n";
 echo exec("ls -lha");
+echo "\n";
 
-echo "\n\n cd ../../";
-echo exec("cd ../../");
 echo exec("git checkout autopilot");
+echo "git branch: ";
 echo exec("git branch -v");
+
 echo "\n\n git status: \n";
 echo exec("git status");
+
 echo "\n git log: \n";
 echo exec("git log");
+
 echo "\n\n";
-echo exec("git pull $github_remote autopilot");
-echo exec("git push --set-upstream $github_remote autopilot");
+
+passthru("git pull $github_remote autopilot");
+passthru("git push $github_remote HEAD:autopilot");
+
 print "\n Pushed to remote repository.";
