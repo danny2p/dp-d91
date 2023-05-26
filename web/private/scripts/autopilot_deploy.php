@@ -24,9 +24,6 @@ print "POST: <pre>";
 print_r($_POST);
 print "</pre>";
 
-print "SERVER: <pre>";
-print_r($_SERVER);
-print "</pre>";
 # If you only wanted this to execute on Dev (master):
 if ($_ENV['PANTHEON_ENVIRONMENT'] != "autopilot") {
   return;
@@ -60,8 +57,10 @@ echo exec("pwd");
 echo "\n ls -lha: \n";
 echo exec("ls -lha");
 
-echo "cd ../../";
-echo exec ("cd ../../");
+echo "\n\n cd ../../";
+echo exec("cd ../../");
+echo exec("git checkout autopilot");
+echo exec("git branch -v");
 echo "\n\n git status: \n";
 echo exec("git status");
 echo "\n git log: \n";
