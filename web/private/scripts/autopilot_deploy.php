@@ -60,30 +60,23 @@ echo "FullRepository: $fullRepository \n\n";
 echo "pwd: ";
 echo exec("pwd");
 
-
-echo "\n\n cd ../../../ \n";
-echo exec("cd ../../../");
-
-echo "pwd: ";
-echo exec("pwd");
-
-echo "\n ls -lha: \n";
-echo exec("ls -lha");
+echo "\n ls -lha $fullRepository: \n";
+passthru("ls -lha $fullRepository");
 echo "\n";
 
-echo exec("git checkout autopilot");
+passthru("git checkout autopilot");
 echo "git branch: ";
-echo exec("git branch -v");
+passthru("git -C $fullRepository branch -v");
 
 echo "\n\n git status: \n";
-echo exec("git status");
+echo exec("git -C $fullRepository status");
 
 echo "\n git log: \n";
-echo exec("git log");
+echo exec("git -C $fullRepository log");
 
 echo "\n\n";
 
-passthru("git pull $github_remote autopilot");
-passthru("git push $github_remote HEAD:autopilot");
+passthru("git -C $fullRepository pull $github_remote autopilot");
+passthru("git -C $fullRepository push $github_remote HEAD:autopilot");
 
 print "\n Pushed to remote repository.";
