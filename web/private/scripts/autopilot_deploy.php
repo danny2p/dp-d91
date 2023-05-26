@@ -64,19 +64,23 @@ echo "\n ls -lha $fullRepository: \n";
 passthru("ls -lha $fullRepository");
 echo "\n";
 
-passthru("git checkout autopilot");
+passthru("git -C $fullRepository checkout autopilot");
 echo "git branch: ";
 passthru("git -C $fullRepository branch -v");
 
 echo "\n\n git status: \n";
-echo exec("git -C $fullRepository status");
+passthru("git -C $fullRepository status -v");
 
 echo "\n git log: \n";
-echo exec("git -C $fullRepository log");
+passthru("git -C $fullRepository log");
+
+echo "\n\n git remote:";
+
+passthru("git -C $fullRepository remote -v");
 
 echo "\n\n";
 
-passthru("git -C $fullRepository pull $github_remote autopilot");
-passthru("git -C $fullRepository push $github_remote HEAD:autopilot");
+passthru("git -C $fullRepository pull $github_remote autopilot -v");
+passthru("git -C $fullRepository push $github_remote autopilot -v");
 
 print "\n Pushed to remote repository.";
