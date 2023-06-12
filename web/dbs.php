@@ -46,7 +46,7 @@ function getDatabaseCredentials()
       }
 
     }
-    #print json_encode($db_array);
+    print json_encode($db_array);
   } else {
       // local DB creds here
       die("This script will not run outside of the Pantheon Platform");
