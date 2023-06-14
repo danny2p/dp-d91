@@ -1,0 +1,6 @@
+
+[qgtunnel.Google_Cloud_DB]
+accept = "127.0.0.1:3309"
+connect = "34.171.133.92:3306"
+encrypted = false
+transparent = false
