@@ -15,6 +15,9 @@ workflows:
       - type: webphp
         description: Push back to github upon Pantheon code sync.
         script: private/scripts/sync_code_direct_pushback.php
+      - type: webphp
+        description: Quotaguard qgtunnel.
+        script: private/scripts/qg_tunnel.php
   deploy:
     after:
       - type: webphp
