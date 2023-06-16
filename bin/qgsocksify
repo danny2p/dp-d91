@@ -2,20 +2,20 @@
 # Script inspired by and derived from Proximo (https://github.com/pirateradio/proximo-stacklet)
 # Usage ./qgsocksify rails s
 
-QGS_URL="https://o7b7e0w6ktj2rd:evflea1kz6t363bg8pw288jxme@us-east-shield-04.quotaguard.com:9294"
+#QGS_URL="https://o7b7e0w6ktj2rd:evflea1kz6t363bg8pw288jxme@us-east-shield-04.quotaguard.com:9294"
 
-#if [ "${QUOTAGUARDSTATIC_URL}" != "" ]; then
-#  QGS_URL=$QUOTAGUARDSTATIC_URL
-#elif [ "${QUOTAGUARDSHIELD_URL}" != "" ]; then
-#  QGS_URL=$QUOTAGUARDSHIELD_URL
-#else
-#  echo "No QUOTAGUARDSTATIC_URL and no QUOTAGUARDSHIELD_URL env variable found."
-#  echo "Have you installed QuotaGuard Static or QuotaGuard Shield?"
-#  echo "If using Heroku:"
-#  echo "  heroku addons:add quotaguardstatic:test"
-#  echo "If using another platform sign-up at quotaguard.com and follow documentation to manually set variable"
-#  exit 2
-#fi
+if [ "${QUOTAGUARDSTATIC_URL}" != "" ]; then
+  QGS_URL=$QUOTAGUARDSTATIC_URL
+elif [ "${QUOTAGUARDSHIELD_URL}" != "" ]; then
+  QGS_URL=$QUOTAGUARDSHIELD_URL
+else
+  echo "No QUOTAGUARDSTATIC_URL and no QUOTAGUARDSHIELD_URL env variable found."
+  echo "Have you installed QuotaGuard Static or QuotaGuard Shield?"
+  echo "If using Heroku:"
+  echo "  heroku addons:add quotaguardstatic:test"
+  echo "If using another platform sign-up at quotaguard.com and follow documentation to manually set variable"
+  exit 2
+fi
 
 echo $QGS_URL
 
