@@ -6,11 +6,12 @@ function multidev_exists() {
     VALUE=$3
     echo $LIST | tr "$DELIMITER" '\n' | grep -F -q -x "$VALUE"
 }
-MULTIDEVS=$(terminus multidev:list dp-d91 --field Name --format list)
+MULTIDEVS=$(terminus multidev:list $PANTHEON_SITE --field Name --format list)
 
 if multidev_exists "$MULTIDEVS" " " $CI_BRANCH; 
 then
  echo "$CI_BRANCH multidev already exists"
 else
-  terminus multidev:create -- $SITE.dev $CI_BRANCH &
+  echo "Creating Multidev for $CI_BRANCH";
+  terminus multidev:create -- $PANTHEON_SITE.dev $CI_BRANCH &
 fi
