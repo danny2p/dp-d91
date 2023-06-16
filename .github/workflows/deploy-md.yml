@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'mdbg'
+      - 'md-deploy'
       - 'feature1'
       - 'feature2'
       - 'feature3'
