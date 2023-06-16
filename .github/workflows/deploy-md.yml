@@ -1,0 +1,43 @@
+name: Deploy to Dev
+on:
+  push:
+    branches:
+      - 'mdbg'
+      - 'feature1'
+      - 'feature2'
+      - 'feature3'
+      - 'feature4'
+jobs:
+  build:
+    if: github.event.commits[0].author.name != 'Pantheon' && github.event.commits[0].author.name != 'Pantheon Automation' && github.event.commits[0].author.name != 'Autopilot' && github.event.commits[0].author.name != 'Github Action'
+    container:
+      image: quay.io/pantheon-public/build-tools-ci:6.x
+      options: --user root
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_CONTEXT: ${{ toJson(github) }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.PANTHEON_SSH_KEY }}
+        config: ${{ secrets.SSH_CONFIG }}
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+    - name: Deployment Processing
+      env:
+        CI_BRANCH: ${{ github.ref_name }}
+        TERMINUS_MACHINE_TOKEN: ${{ secrets.TERMINUS_MACHINE_TOKEN }}
+        PANTHEON_SITE: ${{ secrets.PANTHEON_SITE }}
+        PANTHEON_REPO: ${{ secrets.PANTHEON_REPO }}
+      run: |
+        git config --global user.email "gha@$dp-d91-site"
+        git config --global user.name "Github Action"
+        # Authenticate with Terminus
+        terminus -n auth:login --machine-token=$TERMINUS_MACHINE_TOKEN
+        # Push our github code to Pantheon
+        echo "Deploying $PANTHEON_SITE to Pantheon $CI_BRANCH branch"
+        git fetch --unshallow origin
+        git push --force $PANTHEON_REPO $CI_BRANCH
+        # Create a new multidev environment if it doesn't exist already
+        .github/scripts/multidev-deploy.sh
