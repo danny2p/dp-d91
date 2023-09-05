@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bffcc1371ecac0850cd6c44ff1d5102d",
+    "content-hash": "ed510199bbb2f28767724148cc32ee2d",
     "packages": [
         {
             "name": "arthurkushman/query-path",
@@ -3184,6 +3184,58 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/feeds_ex",
                 "issues": "http://drupal.org/project/issues/feeds_ex"
+            }
+        },
+        {
+            "name": "drupal/filebrowser",
+            "version": "3.1.0-rc2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filebrowser.git",
+                "reference": "3.1.0-rc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filebrowser-3.1.0-rc2.zip",
+                "reference": "3.1.0-rc2",
+                "shasum": "8157b34497f7252759ea6b87d60d801f1cdbe6e3"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.1.0-rc2",
+                    "datestamp": "1690535352",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "clivesj",
+                    "homepage": "https://www.drupal.org/user/129340"
+                },
+                {
+                    "name": "harshkundaliya",
+                    "homepage": "https://www.drupal.org/user/3619314"
+                },
+                {
+                    "name": "kuhikar",
+                    "homepage": "https://www.drupal.org/user/3241981"
+                }
+            ],
+            "description": "Provides FTP-like browsing capabilities.",
+            "homepage": "https://www.drupal.org/project/filebrowser",
+            "support": {
+                "source": "https://git.drupalcode.org/project/filebrowser"
             }
         },
         {
@@ -7090,7 +7142,7 @@
         },
         {
             "name": "pantheon-upstreams/upstream-configuration",
-            "version": "dev-autopilot",
+            "version": "dev-filebrowser",
             "dist": {
                 "type": "path",
                 "url": "upstream-configuration",
@@ -11089,6 +11141,7 @@
         "drupal/domain": 10,
         "drupal/feeds": 10,
         "drupal/feeds_ex": 10,
+        "drupal/filebrowser": 5,
         "drupal/pantheon_decoupled": 15
     },
     "prefer-stable": true,

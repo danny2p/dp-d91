@@ -20,6 +20,7 @@
         "drupal/domain": "^2.0@beta",
         "drupal/feeds": "^3.0@beta",
         "drupal/feeds_ex": "^1.0@beta",
+        "drupal/filebrowser": "^3.1@RC",
         "drupal/google_analytics": "^4.0",
         "drupal/graphql": "^4.4",
         "drupal/gutenberg": "^2.4",
