@@ -23,6 +23,7 @@
         "drupal/google_analytics": "^4.0",
         "drupal/graphql": "^4.4",
         "drupal/gutenberg": "^2.4",
+        "drupal/imce": "^3.0",
         "drupal/jsonapi_menu_items": "^1.2",
         "drupal/miniorange_saml": "^2.27",
         "drupal/module_filter": "^3.2",
