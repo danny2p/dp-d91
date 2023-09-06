@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed510199bbb2f28767724148cc32ee2d",
+    "content-hash": "5e679d974e1cdcd5f575a971ab90e016",
     "packages": [
         {
             "name": "arthurkushman/query-path",
@@ -3184,6 +3184,54 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/feeds_ex",
                 "issues": "http://drupal.org/project/issues/feeds_ex"
+            }
+        },
+        {
+            "name": "drupal/file_to_media",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/file_to_media.git",
+                "reference": "1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/file_to_media-1.0.1.zip",
+                "reference": "1.0.1",
+                "shasum": "906a5934c4228d767944b291a39f1f30552b4abf"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ~9.0 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.1",
+                    "datestamp": "1675402896",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "fenstrat",
+                    "homepage": "https://www.drupal.org/user/362649"
+                },
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                }
+            ],
+            "description": "Allows creating a media entity from an existing file",
+            "homepage": "https://www.drupal.org/project/file_to_media",
+            "support": {
+                "source": "https://git.drupalcode.org/project/file_to_media"
             }
         },
         {
