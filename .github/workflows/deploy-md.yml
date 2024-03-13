@@ -2,11 +2,14 @@ name: Deploy to Dev
 on:
   push:
     branches:
+      - 'master'
       - 'mdbg'
       - 'feature1'
       - 'feature2'
       - 'feature3'
       - 'feature4'
+      - 'march-test'
+      - 'hounder'
 jobs:
   build:
     if: github.event.commits[0].author.name != 'Pantheon' && github.event.commits[0].author.name != 'Pantheon Automation' && github.event.commits[0].author.name != 'Autopilot' && github.event.commits[0].author.name != 'Github Action'
@@ -24,6 +27,10 @@ jobs:
         key: ${{ secrets.PANTHEON_SSH_KEY }}
         config: ${{ secrets.SSH_CONFIG }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
+    - name: Install Terminus
+      uses: pantheon-systems/terminus-github-actions@main
+      with:
+        pantheon-machine-token: ${{ secrets.TERMINUS_MACHINE_TOKEN }}
     - name: Deployment Processing
       env:
         CI_BRANCH: ${{ github.ref_name }}
@@ -33,11 +40,17 @@ jobs:
       run: |
         git config --global user.email "gha@$dp-d91-site"
         git config --global user.name "Github Action"
-        # Authenticate with Terminus
-        terminus -n auth:login --machine-token=$TERMINUS_MACHINE_TOKEN
         # Push our github code to Pantheon
         echo "Deploying $PANTHEON_SITE to Pantheon $CI_BRANCH branch"
         git fetch --unshallow origin
         git push --force $PANTHEON_REPO $CI_BRANCH
+        if ! terminus env:info $PANTHEON_SITE.$CI_BRANCH > /dev/null 2>&1; then
+          terminus env:create $PANTHEON_SITE.dev $CI_BRANCH
+        else
+            echo "Environment $CI_BRANCH already exists."
+        fi
+        MULTIDEV_URL=$(echo "https://$CI_BRANCH-$PANTHEON_SITE.pantheonsite.io")
+        echo "MULTIDEV_URL=$MULTIDEV_URL" >> "$GITHUB_ENV"
+        
         # Create a new multidev environment if it doesn't exist already
-        .github/scripts/multidev-deploy.sh
+        #.github/scripts/multidev-deploy.sh
