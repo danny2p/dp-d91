@@ -35,13 +35,11 @@ jobs:
         PANTHEON_SITE: ${{ secrets.PANTHEON_SITE }}
         PANTHEON_REPO: ${{ secrets.PANTHEON_REPO }}
       run: |
-        git config --global user.email "gha@$dp-d91-site"
-        git config --global user.name "Github Action"
         # Push our github code to Pantheon
         echo "Deploying $PANTHEON_SITE to Pantheon $CI_BRANCH branch"
         git fetch --unshallow origin
         git push --force $PANTHEON_REPO $CI_BRANCH
-        if [ "$CI_BRANCH" != "master" && ! terminus env:info $PANTHEON_SITE.$CI_BRANCH > /dev/null 2>&1 ]; then
+        if [ "$CI_BRANCH" != "master" ] && [ ! terminus env:info $PANTHEON_SITE.$CI_BRANCH > /dev/null 2>&1 ]; then
           terminus env:create $PANTHEON_SITE.dev $CI_BRANCH
         else
           echo "Environment $CI_BRANCH already exists."
