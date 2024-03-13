@@ -33,6 +33,7 @@
         "drupal/views_bulk_operations": "^4.2",
         "drupal/webprofiler": "^9.0",
         "drush/drush": "^10",
+        "pantheon-se/node-composer": "^2.1",
         "pantheon-se/pantheon_autopilot_demo": "^1.0",
         "pantheon-systems/search_api_pantheon": "^8",
         "pantheon-upstreams/upstream-configuration": "*"
@@ -96,7 +97,8 @@
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "zaporylie/composer-drupal-optimizations": true,
-            "ocramius/package-versions": true
+            "ocramius/package-versions": true,
+            "pantheon-se/node-composer": true
         }
     }
 }
