@@ -41,10 +41,12 @@ jobs:
         echo "Deploying $PANTHEON_SITE to Pantheon $CI_BRANCH branch"
         git fetch --unshallow origin
         git push --force $PANTHEON_REPO $CI_BRANCH
-        if [[ $CI_BRANCH != 'master' && ! terminus env:info $PANTHEON_SITE.$CI_BRANCH > /dev/null 2>&1 ]]; then
-          terminus env:create $PANTHEON_SITE.dev $CI_BRANCH
-        else
-            echo "Environment $CI_BRANCH already exists."
+        if $CI_BRANCH != "master"; then
+          if ! terminus env:info $PANTHEON_SITE.$CI_BRANCH > /dev/null 2>&1; then
+            terminus env:create $PANTHEON_SITE.dev $CI_BRANCH
+          else
+              echo "Environment $CI_BRANCH already exists."
+          fi
         fi
         MULTIDEV_URL=$(echo "https://$CI_BRANCH-$PANTHEON_SITE.pantheonsite.io")
         echo "MULTIDEV_URL=$MULTIDEV_URL" >> "$GITHUB_ENV"
