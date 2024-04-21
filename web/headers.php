@@ -1,8 +1,26 @@
 <?php
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
+header("Cache-Control: max-age=0");
 header("Pragma: no-cache");
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cache Control Example</title>
+</head>
+<body>
+<p>
+<strong>
+<?php
+
+date_default_timezone_set('America/Denver');
+$currentDateTime = date('m-d-Y H:i:s');
+echo $currentDateTime;
+
+?>
+</p>
+</strong>
 <table>
     <tr>
         <td style='width:200px;'>HTTP_HOST</td><td><?php echo $_SERVER['HTTP_HOST']; ?></td>
@@ -31,3 +49,6 @@ foreach (getallheaders() as $name => $value) {
 }
 ?>
 </table>
+
+</body>
+</html>
