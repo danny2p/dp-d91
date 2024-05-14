@@ -7,7 +7,7 @@ header("Pragma: no-cache");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cache Control Example</title>
+    <title>Headers and Cache Control Example</title>
 </head>
 <body>
 <p>
