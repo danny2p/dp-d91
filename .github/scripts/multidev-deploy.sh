@@ -6,7 +6,7 @@ function multidev_exists() {
     VALUE=$3
     echo $LIST | tr "$DELIMITER" '\n' | grep -F -q -x "$VALUE"
 }
-MULTIDEVS=$(terminus multidev:list dp-d91 --field Name --format list)
+$MULTIDEVS=$(terminus multidev:list dp-d91 --field Name --format list)
 
 if multidev_exists "$MULTIDEVS" " " $CI_BRANCH; 
 then
