@@ -6,6 +6,10 @@ search:
   version: 8
 database:
   version: 10.6
+object_cache:
+  version: 6.2
+new_relic:
+  drupal_hooks: true
 workflows:
   autopilot_vrt:
     after:
