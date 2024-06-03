@@ -2,14 +2,7 @@ name: Deploy to Dev
 on:
   push:
     branches:
-      - 'master'
-      - 'mdbg'
-      - 'feature1'
-      - 'feature2'
-      - 'feature3'
-      - 'feature4'
-      - 'march-test'
-      - 'hounder'
+      - '*'
 jobs:
   build:
     if: github.event.commits[0].author.name != 'Pantheon' && github.event.commits[0].author.name != 'Pantheon Automation' && github.event.commits[0].author.name != 'Autopilot' && github.event.commits[0].author.name != 'Github Action'
