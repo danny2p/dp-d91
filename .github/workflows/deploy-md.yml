@@ -34,7 +34,7 @@ jobs:
         git push --force $PANTHEON_REPO $CI_BRANCH
         MULTIDEV_EXISTS=$(terminus env:info $PANTHEON_SITE.$CI_BRANCH)
 
-        if [[ "$CI_BRANCH" != "master"  &&  !$MULTIDEV_EXISTS ]]; then
+        if [ "$CI_BRANCH" != "master" ]  && [ !$MULTIDEV_EXISTS ]; then
           terminus multidev:create $PANTHEON_SITE.dev $CI_BRANCH
         else
           echo "Environment $CI_BRANCH already exists."
