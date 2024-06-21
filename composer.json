@@ -36,7 +36,8 @@
         "pantheon-se/node-composer": "^2.1",
         "pantheon-se/pantheon_autopilot_demo": "^1.0",
         "pantheon-systems/search_api_pantheon": "^8",
-        "pantheon-upstreams/upstream-configuration": "*"
+        "pantheon-upstreams/upstream-configuration": "*",
+        "phpseclib/phpseclib": "~3.0"
     },
     "conflict": {
         "drupal/drupal": "*"

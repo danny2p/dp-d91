@@ -1,8 +1,20 @@
 <?php
+require_once('vendor/autoload.php');
+use phpseclib3\Net\SFTP;
+use phpseclib3\Crypt\PublicKeyLoader;
+
 // SFTP connection details
-$sftpHost = 'appserver.danny.b5122a14-30ce-45a2-9026-2b2c739d61ef.drush.in';
-$sftpPort = 2222; // Default SFTP port
-$username = 'danny.b5122a14-30ce-45a2-9026-2b2c739d61ef';
+$host = 'appserver.danny.b5122a14-30ce-45a2-9026-2b2c739d61ef.drush.in';
+$port = 2222; // Default SFTP port
+$user = 'danny.b5122a14-30ce-45a2-9026-2b2c739d61ef';
+$privateKeyFile = pantheon_get_secret('danny-secret-privkey');
+
+echo "privatekeyfile: <br />". $privateKeyFile;
+echo "<hr />";
+
+echo "privatekeyfilecontents: <br />". file_get_contents($privateKeyFile);
+echo "<hr />";
+
 /*
 
 // Function to simulate fetching the private key from a secrets manager
@@ -15,52 +27,23 @@ function getPrivateKeyFromSecretsManager() {
 */
 
 
-$privateKeyFile = pantheon_get_secret('danny-secret-privkey');
+
 
 // Remote file details
 $remoteFile = '/files/themes/twentytwentytwo/assets/images/flight-path-on-transparent-d.png';
 $localFile = '/files/themes/twentytwentytwo/assets/images/flight-path-on-transparent-d.png';
 
-// Initialize the SSH connection
-$connection = ssh2_connect($sftpHost, $sftpPort);
-if (!$connection) {
-    die('Connection failed');
-}
-
-// Authenticate using the private key
-if (!ssh2_auth_pubkey_file($connection, $username, $privateKeyFile . '.pub', $privateKeyFile)) {
-    die('Authentication failed');
-}
+$key = PublicKeyLoader::loadPrivateKey($privateKeyFile);
 
 // Initialize SFTP
-$sftp = ssh2_sftp($connection);
-if (!$sftp) {
-    die('SFTP initialization failed');
+$sftp = new SFTP($host, $port);
+
+// Authenticate using the private key
+if (!$sftp->login($user, $key)) {
+    exit('Login Failed');
 }
 
-// Open the remote file for reading
-$remoteFileStream = fopen("ssh2.sftp://$sftp$remoteFile", 'r');
-if (!$remoteFileStream) {
-    die('Failed to open remote file');
+// Fetch the remote file
+if (!$sftp->get($remoteFile, $localFile)) {
+    exit('Failed to fetch the remote file');
 }
-
-// Open the local file for writing
-$localFileStream = fopen($localFile, 'w');
-if (!$localFileStream) {
-    fclose($remoteFileStream);
-    die('Failed to open local file');
-}
-
-// Copy the remote file to the local file
-$writtenBytes = stream_copy_to_stream($remoteFileStream, $localFileStream);
-if ($writtenBytes === false) {
-    fclose($remoteFileStream);
-    fclose($localFileStream);
-    die('Failed to copy remote file to local file');
-}
-
-// Close the file streams
-fclose($remoteFileStream);
-fclose($localFileStream);
-
-echo 'File fetched successfully';
