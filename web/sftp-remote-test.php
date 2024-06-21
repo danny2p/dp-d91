@@ -1,5 +1,5 @@
 <?php
-require_once('vendor/autoload.php');
+require_once('../vendor/autoload.php');
 use phpseclib3\Net\SFTP;
 use phpseclib3\Crypt\PublicKeyLoader;
 
