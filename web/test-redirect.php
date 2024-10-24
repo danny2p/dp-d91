@@ -13,7 +13,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
   }
 
   if ($requires_redirect === true) {
-    echo "WILL REDIRECT";
+    echo "WILL REDIRECT!";
   } else {
     echo "WILL NOT REDIRECT";
   }
